@@ -146,7 +146,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1188131107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 9d8bd4f8481a773488649b18bd02cbc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1188131107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: a94bf141bd2044c4399e321445c83112, type: 3}
   m_Color: {r: 0.011764706, g: 0.4627451, b: 0.9254902, a: 1}
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: 3ff1d3d6924038d4abe0c6c3accbe811, type: 2}
+  wallet: {fileID: 2774489658586507881}
   projectileSpawnPoint: {fileID: 5905373475563435910}
   serverProjectilePrefab: {fileID: 6855514053097510015, guid: d9d1f48156f258f4c972003ae2ccf347, type: 3}
   clientProjectilePrefab: {fileID: 7416885045652915302, guid: 6cbad9ef9f419754f818002c3023e072, type: 3}
@@ -416,6 +417,7 @@ MonoBehaviour:
   projectileSpeed: 30
   fireRate: 0.75
   MuzzleFlashDuration: 0.075
+  costToFire: 5
 --- !u!114 &1780609868980166801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,7 +656,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1188131107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 8769e4453ce5bc3429cfba7d58fbef13, type: 3}
   m_Color: {r: 0.013082923, g: 0.462645, b: 0.9245283, a: 1}
@@ -772,7 +774,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1188131107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1a838243856331f4681c559527ad5846, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
