@@ -12,7 +12,7 @@ public class RespawnHandler : NetworkBehaviour
     {
         if (!IsServer) return;
 
-        Player[] players = FindObjectsOfType<Player>();
+        Player[] players = FindObjectsByType<Player>(FindObjectsSortMode.None);
         foreach (Player player in players)
         {
             HandlePlayerSpawned(player);
