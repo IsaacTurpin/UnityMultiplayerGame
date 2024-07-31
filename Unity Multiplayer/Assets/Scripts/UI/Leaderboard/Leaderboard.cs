@@ -125,7 +125,8 @@ public class Leaderboard : NetworkBehaviour
 
     private void HandlePlayerDespawned(Player player)
     {
-        if (leaderboardEntities == null) return;
+        if (leaderboardEntities == null) return; 
+        if (IsServer && player.OwnerClientId == OwnerClientId) return;
 
         foreach (LeaderboardEntityState entity in  leaderboardEntities)
         {

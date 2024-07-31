@@ -17,7 +17,8 @@ public class ClientNetworkTransform : NetworkTransform
         base.Update();
         if(NetworkManager != null)
         {
-            if(NetworkManager.IsConnectedClient || NetworkManager.IsListening)
+            //if(NetworkManager.IsConnectedClient || NetworkManager.IsListening)
+            if (!IsHost && NetworkManager != null && NetworkManager.IsConnectedClient && CanCommitToTransform)
             {
                 if(CanCommitToTransform)
                 {
