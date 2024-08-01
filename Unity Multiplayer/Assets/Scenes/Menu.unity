@@ -2415,7 +2415,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1684084008}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartHost
+        m_MethodName: FindMatchPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

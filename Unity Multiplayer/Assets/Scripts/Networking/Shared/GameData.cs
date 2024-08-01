@@ -21,7 +21,7 @@ public class UserData
 {
     public string userName;
     public string userAuthId;
-    public GameInfo userGamePreferences;
+    public GameInfo userGamePreferences = new GameInfo();
 }
 
 [Serializable]
@@ -33,6 +33,13 @@ public class GameInfo
 
     public string ToMultiplayQueue()
     {
-        return "";
+        // return ""; - empty string if not setup on dashboard yet
+        return gameQueue switch
+        {
+            GameQueue.Solo => "solo-queue",
+            GameQueue.Team => "team-queue",
+            _ => "solo-queue"
+        };
+             
     }
 }
