@@ -9,6 +9,9 @@ public class NetworkServer : IDisposable
 {
     private NetworkManager networkManager;
 
+    public Action<UserData> OnUserJoined;
+    public Action<UserData> OnUserLeft;
+
     public Action<string> OnClientLeft;
 
     private Dictionary<ulong, string> clientIdToAuth = new Dictionary<ulong, string>();
@@ -36,6 +39,7 @@ public class NetworkServer : IDisposable
 
         clientIdToAuth[request.ClientNetworkId] = userData.userAuthId;
         authIdToUserData[userData.userAuthId] = userData;
+        OnUserJoined?.Invoke(userData);
 
         response.Approved = true;
         response.Position = SpawnPoint.GetRandomSpawnPos(); //from spawnPoints class
@@ -53,6 +57,7 @@ public class NetworkServer : IDisposable
         if(clientIdToAuth.TryGetValue(clientId, out string authId))
         {
             clientIdToAuth.Remove(clientId);
+            OnUserLeft?.Invoke(authIdToUserData[authId]);
             authIdToUserData.Remove(authId);
             OnClientLeft?.Invoke(authId);
         }
