@@ -6,42 +6,42 @@ using UnityEngine;
 
 public class RespawnHandler : NetworkBehaviour
 {
-    [SerializeField] private Player playerPrefab;
+    [SerializeField] private ZPlayer playerPrefab;
     [SerializeField] private float keptCoinPercentage;
 
     public override void OnNetworkSpawn()
     {
         if (!IsServer) return;
 
-        Player[] players = FindObjectsByType<Player>(FindObjectsSortMode.None);
-        foreach (Player player in players)
+        ZPlayer[] players = FindObjectsByType<ZPlayer>(FindObjectsSortMode.None);
+        foreach (ZPlayer player in players)
         {
             HandlePlayerSpawned(player);
         }
 
-        Player.OnPlayerSpawned += HandlePlayerSpawned;
-        Player.OnPlayerDespawned += HandlePlayerDespawned;
+        ZPlayer.OnPlayerSpawned += HandlePlayerSpawned;
+        ZPlayer.OnPlayerDespawned += HandlePlayerDespawned;
     }
 
     public override void OnNetworkDespawn()
     {
         if (!IsServer) return;
 
-        Player.OnPlayerSpawned -= HandlePlayerSpawned;
-        Player.OnPlayerDespawned -= HandlePlayerDespawned;
+        ZPlayer.OnPlayerSpawned -= HandlePlayerSpawned;
+        ZPlayer.OnPlayerDespawned -= HandlePlayerDespawned;
     }
 
-    private void HandlePlayerSpawned(Player player)
+    private void HandlePlayerSpawned(ZPlayer player)
     {
         player.Health.OnDie += (health) => HandlePlayerDie(player);
     }
 
-    private void HandlePlayerDespawned(Player player)
+    private void HandlePlayerDespawned(ZPlayer player)
     {
         player.Health.OnDie -= (health) => HandlePlayerDie(player);
     }
 
-    private void HandlePlayerDie(Player player)
+    private void HandlePlayerDie(ZPlayer player)
     {
         int keptCoins = (int)(player.Wallet.TotalCoins.Value * (keptCoinPercentage / 100));
 
@@ -54,7 +54,7 @@ public class RespawnHandler : NetworkBehaviour
     {
         yield return null;
 
-        Player playerInstance = Instantiate(playerPrefab, SpawnPoint.GetRandomSpawnPos(), Quaternion.identity);
+        ZPlayer playerInstance = Instantiate(playerPrefab, SpawnPoint.GetRandomSpawnPos(), Quaternion.identity);
 
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientId);
 

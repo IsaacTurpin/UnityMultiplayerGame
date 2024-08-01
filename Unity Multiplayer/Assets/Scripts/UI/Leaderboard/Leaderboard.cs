@@ -36,14 +36,14 @@ public class Leaderboard : NetworkBehaviour
 
         if(IsServer)
         {
-            Player[] players = FindObjectsByType<Player>(FindObjectsSortMode.None);
-            foreach (Player player in players)
+            ZPlayer[] players = FindObjectsByType<ZPlayer>(FindObjectsSortMode.None);
+            foreach (ZPlayer player in players)
             {
                 HandlePlayerSpawned(player);
             }
 
-            Player.OnPlayerSpawned += HandlePlayerSpawned;
-            Player.OnPlayerDespawned += HandlePlayerDespawned;
+            ZPlayer.OnPlayerSpawned += HandlePlayerSpawned;
+            ZPlayer.OnPlayerDespawned += HandlePlayerDespawned;
         }
     }
 
@@ -56,8 +56,8 @@ public class Leaderboard : NetworkBehaviour
 
         if (IsServer)
         {
-            Player.OnPlayerSpawned -= HandlePlayerSpawned;
-            Player.OnPlayerDespawned -= HandlePlayerDespawned;
+            ZPlayer.OnPlayerSpawned -= HandlePlayerSpawned;
+            ZPlayer.OnPlayerDespawned -= HandlePlayerDespawned;
         }
     }
 
@@ -111,7 +111,7 @@ public class Leaderboard : NetworkBehaviour
         }
     }
 
-    private void HandlePlayerSpawned(Player player)
+    private void HandlePlayerSpawned(ZPlayer player)
     {
         leaderboardEntities.Add(new LeaderboardEntityState
         {
@@ -123,7 +123,7 @@ public class Leaderboard : NetworkBehaviour
         player.Wallet.TotalCoins.OnValueChanged += (oldCoins, newCoins) => HandleCoinsChanged(player.OwnerClientId, newCoins);
     }
 
-    private void HandlePlayerDespawned(Player player)
+    private void HandlePlayerDespawned(ZPlayer player)
     {
         if (leaderboardEntities == null) return; 
         if (IsServer && player.OwnerClientId == OwnerClientId) return;

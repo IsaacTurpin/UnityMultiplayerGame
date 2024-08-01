@@ -6,7 +6,7 @@ using Cinemachine;
 using Unity.Collections;
 using System;
 
-public class Player : NetworkBehaviour
+public class ZPlayer : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -20,8 +20,8 @@ public class Player : NetworkBehaviour
 
     public NetworkVariable<FixedString32Bytes> PlayerName = new NetworkVariable<FixedString32Bytes>();
 
-    public static event Action<Player> OnPlayerSpawned;
-    public static event Action<Player> OnPlayerDespawned;
+    public static event Action<ZPlayer> OnPlayerSpawned;
+    public static event Action<ZPlayer> OnPlayerDespawned;
 
     public override void OnNetworkSpawn()
     {

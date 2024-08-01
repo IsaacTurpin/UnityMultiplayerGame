@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerNameDisplay : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    [SerializeField] private ZPlayer player;
     [SerializeField] private TMP_Text playerNameText;
 
     private void Start()

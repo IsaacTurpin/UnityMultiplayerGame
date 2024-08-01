@@ -19,7 +19,7 @@ public class HealingZone : NetworkBehaviour
     private float remainingCooldown;
     private float tickTimer;
 
-    private List<Player> playersInZone = new List<Player>();
+    private List<ZPlayer> playersInZone = new List<ZPlayer>();
 
     private NetworkVariable<int> HealPower = new NetworkVariable<int>();
 
@@ -48,7 +48,7 @@ public class HealingZone : NetworkBehaviour
     {
         if(!IsServer) return;
 
-        if(!collision.attachedRigidbody.TryGetComponent<Player>(out Player player)) return;
+        if(!collision.attachedRigidbody.TryGetComponent<ZPlayer>(out ZPlayer player)) return;
 
         playersInZone.Add(player);
     }
@@ -57,7 +57,7 @@ public class HealingZone : NetworkBehaviour
     {
         if (!IsServer) return;
 
-        if (!collision.attachedRigidbody.TryGetComponent<Player>(out Player player)) return;
+        if (!collision.attachedRigidbody.TryGetComponent<ZPlayer>(out ZPlayer player)) return;
 
         playersInZone.Remove(player);
     }
@@ -83,7 +83,7 @@ public class HealingZone : NetworkBehaviour
         tickTimer += Time.deltaTime;
         if(tickTimer >= 1 / healTickRate)
         {
-            foreach (Player player in playersInZone)
+            foreach (ZPlayer player in playersInZone)
             {
                 if (HealPower.Value == 0) break;
 
