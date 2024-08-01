@@ -29,7 +29,7 @@ public class HostGameManager : IDisposable
         this.playerPrefab = playerPrefab;
     }
 
-    public async Task StartHostAsync()
+    public async Task StartHostAsync(bool isPrivate)
     {
         try
         {
@@ -60,7 +60,7 @@ public class HostGameManager : IDisposable
         try
         {
             CreateLobbyOptions lobbyOptions = new CreateLobbyOptions();
-            lobbyOptions.IsPrivate = false; // Could use UI toggle to make this either true or false if wanted
+            lobbyOptions.IsPrivate = isPrivate;
             lobbyOptions.Data = new Dictionary<string, DataObject>()
             {
                 {
