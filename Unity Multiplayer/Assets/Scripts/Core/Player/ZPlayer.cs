@@ -20,6 +20,7 @@ public class ZPlayer : NetworkBehaviour
     [SerializeField] private Color ownerColour = Color.cyan;
 
     public NetworkVariable<FixedString32Bytes> PlayerName = new NetworkVariable<FixedString32Bytes>();
+    public NetworkVariable<int> TeamIndex = new NetworkVariable<int>();
 
     public static event Action<ZPlayer> OnPlayerSpawned;
     public static event Action<ZPlayer> OnPlayerDespawned;
@@ -39,6 +40,7 @@ public class ZPlayer : NetworkBehaviour
             }
 
             PlayerName.Value = userData.userName;
+            TeamIndex.Value = userData.teamIndex;
 
             OnPlayerSpawned?.Invoke(this);
         }

@@ -5357,6 +5357,8 @@ MonoBehaviour:
         byte0027: 0
         byte0028: 0
         byte0029: 0
+  TeamIndex:
+    m_InternalValue: 0
 --- !u!114 &3705794029947253069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5402,6 +5404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161d8fa2489405f4c8d81089e4486c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8792273934630478258}
   inputReader: {fileID: 11400000, guid: 3ff1d3d6924038d4abe0c6c3accbe811, type: 2}
   wallet: {fileID: 2774489658586507881}
   projectileSpawnPoint: {fileID: 5905373475563435910}
@@ -15619,6 +15622,7 @@ GameObject:
   - component: {fileID: 3097074588620240995}
   - component: {fileID: 6912962892040039345}
   - component: {fileID: 6233991584380642795}
+  - component: {fileID: 4407707443644272882}
   m_Layer: 0
   m_Name: TankTreads
   m_TagString: Untagged
@@ -15772,6 +15776,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.765625, y: 2.0546875}
   m_EdgeRadius: 0
+--- !u!114 &4407707443644272882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194468462248902588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4baf1784befe9ea4aa172cc2d87d2369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamColourLookup: {fileID: 11400000, guid: 39d51f6021713a24caba1e00dfca13bc, type: 2}
+  player: {fileID: 8792273934630478258}
+  playerSprites:
+  - {fileID: 6377403107862198950}
+  - {fileID: 5032983280731039255}
 --- !u!1 &8174487865112604763
 GameObject:
   m_ObjectHideFlags: 0
